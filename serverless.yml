@@ -6,6 +6,9 @@ provider:
   name: aws
   runtime: nodejs8.10
   region: ap-northeast-1
+  environment:
+    ALLOW_ORIGINS: 'https://[a-z0-9]*.?hurouap.com,https://[a-z0-9]*.worksap.com,https://[a-z0-9]*.worksap.com,http://localhost:[0-9]*'
+    DEFAULT_ALLOW_ORIGIN: 'https://api.hurouap.com'
 
 custom:
   corsSetting:
