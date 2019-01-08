@@ -3,7 +3,7 @@
 const defaultALlowOrigin = process.env.DEFAULT_ALLOW_ORIGIN;
 const allowOriginList = process.env.ALLOW_ORIGINS.split(',');
 
-const generateAllowOriginParameter = async (callerOrigin) => {
+const generateAllowOriginParameter =  (callerOrigin) => {
   if(callerOrigin===undefined) {
     return defaultALlowOrigin
   }
@@ -14,8 +14,7 @@ const generateAllowOriginParameter = async (callerOrigin) => {
 
 module.exports.hello = async (event, context) => {
   console.log(event);
-  const allowOrigin = await generateAllowOriginParameter(event.headers.origin);
-  console.log({ allowOrigin });
+  const allowOrigin =  generateAllowOriginParameter(event.headers.origin);
   return {
     statusCode: 200,
     headers: {
