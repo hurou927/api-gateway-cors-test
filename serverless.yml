@@ -25,6 +25,9 @@ custom:
       - sEt-cookie
     allowCredentials: true
 
+plugins:
+  - custom-plugin
+
 package:
   exclude:
     - ./**
@@ -46,6 +49,15 @@ functions:
     events:
       - http:
           path: cookie
+          method: post
+          cors:
+            ${self:custom.corsSetting}
+
+  hello3:
+    handler: handler.hello
+    events:
+      - http:
+          path: test/cookie
           method: post
           cors:
             ${self:custom.corsSetting}
